@@ -3,6 +3,7 @@
   "license": "BSD-3-Clause",
   "version": "0.8.0",
   "description": "This element is used to display an overlay on hover or focus.",
+  "homepage": "http://www.expandjs.com/elements/xp-tooltip",
   "authors": [
     "Giuliano Rullo <g.rullo@expandjs.com>",
     "Maurizio Stefàno <m.stefano@expandjs.com>",
