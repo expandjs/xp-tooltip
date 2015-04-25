@@ -1,0 +1,22 @@
+{
+  "name": "xp-tooltip",
+  "license": "BSD-3-Clause",
+  "version": "0.8.0",
+  "description": "This component is used to display an overlay on hover or focus.",
+  "authors": [
+    "Giuliano Rullo <g.rullo@expandjs.com>",
+    "Maurizio Stefàno <m.stefano@expandjs.com>",
+    "Robert Manolea <r.manolea@expandjs.com>"
+  ],
+  "main": [
+    "xp-tooltip.html"
+  ],
+  "keywords": [
+    "web-components"
+  ],
+  "dependencies": {
+    "expandjs": "ExpandJS/expandjs",
+    "xp-overlay": "ExpandJS/xp-overlay",
+    "polymer": "Polymer/polymer#^0.5"
+  }
+}
