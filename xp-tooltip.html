@@ -31,6 +31,10 @@ This element is used to display an overlay on hover or focus.
                 overflow: visible;
             }
 
+            :host #xpTooltipOverlay::shadow #xpOverlayWrapper {
+                overflow: visible;
+            }
+
             :host #xpTooltipTip {
                 background-color: hsla(0, 0%, 0%, 0.9);
                 border-radius: 2px;
@@ -48,12 +52,10 @@ This element is used to display an overlay on hover or focus.
                 white-space: nowrap;
             }
         </style>
-        <div id="xpTooltipWrapper">
-            <content id="content"></content>
-            <xp-overlay id="xpTooltipOverlay" autoCenter="{{true}}" autoHideDisabled="{{true}}" hidden?="{{empty}}" position="baseline" showed="{{showed}}" target="{{}}">
-                <div id="xpTooltipTip">{{tip}}</div>
-            </xp-overlay>
-        </div>
+        <content id="content"></content>
+        <xp-overlay id="xpTooltipOverlay" autoCenter="{{true}}" autoHideDisabled="{{true}}" hidden?="{{empty}}" position="baseline" showed="{{showed}}" target="{{}}">
+            <div id="xpTooltipTip">{{tip}}</div>
+        </xp-overlay>
     </template>
 
     <script>
