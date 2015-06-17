@@ -1,0 +1,185 @@
+<!--
+@license
+Copyright (c) 2015 The ExpandJS authors. All rights reserved.
+This code may only be used under the BSD style license found at https://expandjs.github.io/LICENSE.txt
+The complete set of authors may be found at https://expandjs.github.io/AUTHORS.txt
+The complete set of contributors may be found at https://expandjs.github.io/CONTRIBUTORS.txt
+-->
+
+<!--
+This element is used to display an overlay on hover or focus.
+
+@element xp-tooltip
+@description A custom element used to create a tooltip
+@keywords web app, html5, expandjs, web-components
+@group accessibility
+@homepage http://expandjs.com/elements/xp-tooltip
+
+@behavior xp-referral-behavior http://expandjs.com/elements/xp-referral-behavior
+
+@dependency polymer Polymer/polymer
+@dependency expandjs ExpandJS/expandjs
+@dependency xp-overlay ExpandJS/xp-overlay
+@dependency xp-referral-behavior ExpandJS/xp-referral-behavior
+-->
+
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../expandjs/expandjs.html">
+<link rel="import" href="../xp-overlay/xp-overlay.html">
+<link rel="import" href="../xp-referral-behavior/xp-referral-behavior.html">
+
+<dom-module id="xp-tooltip">
+
+    <style>
+        :host {
+            display: inline-block;
+            overflow: visible;
+        }
+
+        :host([empty]) #xpTooltipOverlay {
+            display: none !important;
+        }
+
+        :host #xpTooltipOverlay::shadow #xpOverlayWrapper {
+            overflow: visible;
+        }
+
+        :host #xpTooltipTip {
+            background-color: hsla(0, 0%, 0%, 0.9);
+            border-radius: 2px;
+            color: hsla(0, 0%, 100%, 1);
+            margin: 4px;
+            overflow: hidden;
+            padding: 4px 8px;
+            text-align: center;
+            text-overflow: ellipsis;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-user-select: none;
+            user-select: none;
+            white-space: nowrap;
+        }
+    </style>
+
+    <template>
+        <content id="content"></content>
+        <xp-overlay id="xpTooltipOverlay" auto-center auto-hide-disabled position="baseline" showed="{{showed}}" target="[[self]]">
+            <div id="xpTooltipTip">{{tip}}</div>
+        </xp-overlay>
+    </template>
+
+    <script>
+        Polymer({
+
+            // ELEMENT
+            is: 'xp-tooltip',
+
+            // BEHAVIORS
+            behaviors: [
+                Polymer.XPReferralBehavior
+            ],
+
+            /*********************************************************************/
+
+            /**
+             * Hides the tooltip.
+             *
+             * @method hide
+             * @returns {Element}
+             */
+            hide: function () {
+                var self = this;
+                self.$.xpTooltipOverlay.hide();
+                return self;
+            },
+
+            /**
+             * Shows the tooltip.
+             *
+             * @method show
+             * @returns {Element}
+             */
+            show: function () {
+                var self = this;
+                self.$.xpTooltipOverlay.show();
+                return self;
+            },
+
+            /**
+             * Toggles the tooltip.
+             *
+             * @method toggle
+             * @returns {Element}
+             */
+            toggle: function () {
+                var self = this;
+                self.$.xpTooltipOverlay.toggle();
+                return self;
+            },
+
+            /*********************************************************************/
+
+            // LISTENERS
+            listeners: {
+                'mouseover': 'show',
+                'mouseout': 'hide'
+            },
+
+            // PROPERTIES
+            properties: {
+
+                /**
+                 * If set to true, the tooltip is hidden.
+                 *
+                 * @attribute empty
+                 * @type boolean
+                 * @default false
+                 * @notifies
+                 * @readonly
+                 */
+                empty: {
+                    computed: '_computeEmpty(tip)',
+                    notify: true,
+                    reflectToAttribute: true,
+                    type: Boolean
+                },
+
+                /**
+                 * If set to true, the tooltip is showed.
+                 *
+                 * @attribute showed
+                 * @type boolean
+                 * @default false
+                 * @notifies
+                 */
+                showed: {
+                    notify: true,
+                    reflectToAttribute: true,
+                    type: Boolean,
+                    value: false
+                },
+
+                /**
+                 * The tooltip's text.
+                 *
+                 * @attribute tip
+                 * @type string
+                 */
+                tip: {
+                    reflectToAttribute: true,
+                    type: String,
+                    value: null
+                }
+            },
+
+            /*********************************************************************/
+
+            // COMPUTER
+            _computeEmpty: function (tip) {
+                return !tip;
+            }
+        });
+    </script>
+
+</dom-module>
