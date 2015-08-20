@@ -2,6 +2,7 @@
   "name": "xp-tooltip",
   "license": "BSD-3-Clause",
   "version": "0.9.6",
+  "main": "xp-tooltip.html",
   "description": "A custom element used to create a tooltip",
   "homepage": "http://expandjs.com/elements/xp-tooltip",
   "authors": [
@@ -14,9 +15,6 @@
     "html5",
     "expandjs",
     "web-components"
-  ],
-  "main": [
-    "xp-tooltip.html"
   ],
   "ignore": [
     "**/.*"
