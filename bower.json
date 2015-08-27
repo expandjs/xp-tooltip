@@ -23,6 +23,6 @@
     "expandjs": "ExpandJS/expandjs#0.9.8",
     "xp-overlay": "ExpandJS/xp-overlay#0.9.8",
     "xp-referral-behavior": "ExpandJS/xp-referral-behavior#0.9.8",
-    "polymer": "Polymer/polymer#^1.0.0"
+    "polymer": "Polymer/polymer#^1.1.0"
   }
 }
