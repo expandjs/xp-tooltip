@@ -39,43 +39,45 @@ It will reveal itself either on hovering or on tap.
 
 <dom-module id="xp-tooltip">
 
-    <style>
-        :host {
-            display: inline-block;
-            overflow: visible;
-        }
-
-        :host([empty]) #xpTooltipOverlay {
-            display: none !important;
-        }
-
-        :host #xpTooltipOverlay::shadow #xpOverlayWrapper {
-            overflow: visible;
-        }
-
-        :host #xpTooltipTip {
-            background-color: hsla(0, 0%, 0%, 0.9);
-            border-radius: 2px;
-            color: hsla(0, 0%, 100%, 1);
-            margin: 4px;
-            overflow: hidden;
-            padding: 4px 8px;
-            text-align: center;
-            text-overflow: ellipsis;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            -webkit-tap-highlight-color: transparent;
-            -webkit-user-select: none;
-            user-select: none;
-            white-space: nowrap;
-        }
-    </style>
-
     <template>
+
+        <style>
+            :host {
+                display: inline-block;
+                overflow: visible;
+            }
+
+            :host([empty]) #xpTooltipOverlay {
+                display: none !important;
+            }
+
+            :host #xpTooltipOverlay::shadow #xpOverlayWrapper {
+                overflow: visible;
+            }
+
+            :host #xpTooltipTip {
+                background-color: hsla(0, 0%, 0%, 0.9);
+                border-radius: 2px;
+                color: hsla(0, 0%, 100%, 1);
+                margin: 4px;
+                overflow: hidden;
+                padding: 4px 8px;
+                text-align: center;
+                text-overflow: ellipsis;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                -webkit-tap-highlight-color: transparent;
+                -webkit-user-select: none;
+                user-select: none;
+                white-space: nowrap;
+            }
+        </style>
+
         <content id="content"></content>
         <xp-overlay id="xpTooltipOverlay" auto-center auto-hide-disabled position="baseline" showed="{{showed}}" target="[[self]]">
             <div id="xpTooltipTip">{{tip}}</div>
         </xp-overlay>
+
     </template>
 
     <script>
