@@ -51,6 +51,10 @@ It will reveal itself either on hovering or on tap.
                 display: none !important;
             }
 
+            :host #xpTooltipOverlay {
+                pointer-events: none;
+            }
+
             :host #xpTooltipOverlay::shadow #xpOverlayWrapper {
                 overflow: visible;
             }
