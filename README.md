@@ -1,3 +1,3 @@
 # xp-tooltip
 
-See the [`documentation page`](http://expandjs.com/elements/xp-tooltip) for more information.
+This repository **is deprecated**. Use [`xp-tooltip-behavior`](https://github.com/expandjs/xp-tooltip-behavior) instead.
